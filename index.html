@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wetter App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-default">
+  <div class="app-wrapper">
+    <h1 class="app-title">Wetter</h1>
+
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Gib eine Stadt ein" autocomplete="off" />
+      <div id="suggestions" class="suggestions"></div>
+      <button id="searchBtn" aria-label="Suche Stadt">Suche</button>
+    </div>
+
+    <div id="weather" class="weather-card hidden">
+      <!-- JS-вставка погоды -->
+    </div>
+
+    <!-- Ошибка только если город не найден -->
+    <div id="error" class="error-msg hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
