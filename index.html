@@ -1,31 +1,47 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <title>Wetter App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+
+  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-<body class="theme-default">
+<body>
+
+  <!-- Wrapper for the entire app -->
   <div class="app-wrapper">
-    <h1 class="app-title">Wetter</h1>
 
+    <!-- App Title -->
+    <h1 class="app-title">Weather</h1>
+
+    <!-- Search Section: input + buttons -->
     <div class="search-box">
-      <input type="text" id="cityInput" placeholder="Gib eine Stadt ein" autocomplete="off" />
-      <div id="suggestions" class="suggestions"></div>
-      <button id="searchBtn" aria-label="Suche Stadt">Suche</button>
+      <!-- City input field -->
+      <input type="text" id="cityInput" placeholder="Enter city...">
+
+      <!-- Buttons: Search and Geolocation -->
+      <div class="button-group">
+        <button id="searchBtn">Search</button>
+        <button id="geoBtn" title="Use current location">📍</button>
+      </div>
+
+      <!-- Autocomplete suggestion list -->
+      <div id="suggestions" class="suggestions hidden"></div>
     </div>
 
-    <div id="weather" class="weather-card hidden">
-      <!-- JS-вставка погоды -->
-    </div>
-
-    <!-- Ошибка только если город не найден -->
+    <!-- Error message display -->
     <div id="error" class="error-msg hidden"></div>
+
+    <!-- Weather result block -->
+    <div id="weather" class="weather-card hidden"></div>
   </div>
 
+  <!-- JavaScript logic -->
   <script src="app.js"></script>
 </body>
 </html>

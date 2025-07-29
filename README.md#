@@ -1,0 +1,55 @@
+# 🌤️ Weather App
+
+A modern and responsive weather application built with **HTML**, **CSS**, and **JavaScript**. It allows users to search for weather data by city name or use their current location. The app displays current weather conditions, local time, and a 5-hour forecast using data from **OpenWeatherMap API** and **OpenStreetMap (Nominatim)** for precise geolocation.
+
+---
+
+## 🔍 Features
+
+- 🔎 City search with **autocomplete suggestions**  
+- 📍 Get weather using **current geolocation**  
+- 🕒 Shows **local time** of the city  
+- 🌡️ Current temperature, weather icon, description, humidity, wind  
+- ⏳ 5-hour forecast with weather icons  
+- 🎨 Clean, responsive UI with blur & neumorphic style  
+- 🌐 Multi-language support (based on browser language)
+
+---
+
+## 📸 Screenshots
+
+### 🖥️ Desktop Version
+
+| Search Page                         | Weather Result                     |
+|------------------------------------|------------------------------------|
+| ![Desktop 1](screenshots/desktop.png) | ![Desktop 2](screenshots/desktop1.png) |
+
+### 📱 Mobile Version
+
+| Mobile Search                      | Mobile Result                      |
+|-----------------------------------|------------------------------------|
+| ![Mobile 1](screenshots/mobile.png) | ![Mobile 2](screenshots/mobile1.png) |
+
+---
+
+## 🚀 Live Demo
+
+🌐 [Live Demo Here](https://Artur-Zuiev.github.io/weather-app/)
+
+> Replace **your-username** with your actual GitHub username after uploading.
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5 + CSS3  
+- JavaScript (Vanilla)  
+- OpenWeatherMap API  
+- OpenStreetMap (Nominatim)  
+- Google Fonts: Inter
+
+---
+
+## 📄 License
+
+This project is free and open-source.

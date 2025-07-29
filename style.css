@@ -1,3 +1,4 @@
+/* ========== GLOBAL RESET & BASE STYLES ========== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,23 +10,28 @@ html, body {
 }
 
 body {
+  /* Basic layout and visual style */
   font-family: 'Inter', sans-serif;
   background: linear-gradient(to bottom right, #e0f7fa, #80deea);
+  background-attachment: fixed;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 20px;
+  min-height: 100vh;
+  padding: 40px 20px 80px;
   color: #333;
+  overflow-x: hidden;
 }
 
-/* Обёртка */
+/* ========== APP CONTAINER ========== */
 .app-wrapper {
-  width: 100%;
   max-width: 420px;
+  width: 100%;
   text-align: center;
+  padding-bottom: 40px;
 }
 
-/* Заголовок */
+/* ========== TITLE STYLE ========== */
 .app-title {
   font-size: 36px;
   font-weight: 800;
@@ -34,29 +40,37 @@ body {
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Поисковый блок */
+/* ========== SEARCH SECTION ========== */
 .search-box {
   position: relative;
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
+/* Input field */
 input {
   padding: 12px 16px;
   font-size: 1rem;
   border: none;
   border-radius: 12px;
   width: 240px;
-  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.1),
-              inset -3px -3px 6px rgba(255, 255, 255, 0.6);
   background: #f0f0f0;
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.6);
   outline: none;
   color: #333;
 }
 
+/* Buttons group (Search + Geolocation) */
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Standard button */
 button {
   padding: 12px 18px;
   font-size: 1rem;
@@ -65,63 +79,85 @@ button {
   border: none;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 button:hover {
   background: #0097a7;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
   transform: scale(0.98);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
+/* Geolocation circular button */
+#geoBtn {
+  width: 42px;
+  height: 42px;
+  background: #4caf50;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 
-/* Подсказки */
+#geoBtn:hover {
+  background: #388e3c;
+}
+
+/* ========== AUTOCOMPLETE DROPDOWN ========== */
 .suggestions {
   position: absolute;
   top: 100%;
-  background: #ffffffcc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
   width: 100%;
   max-height: 180px;
   overflow-y: auto;
+  background: #ffffffcc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
   backdrop-filter: blur(10px);
   z-index: 10;
   text-align: left;
 }
+
 .suggestions div {
   padding: 10px 15px;
   cursor: pointer;
 }
+
 .suggestions div:hover {
   background: #eeeeee;
 }
 
-/* Карточка погоды */
+/* ========== WEATHER CARD ========== */
 .weather-card {
-  position: relative;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 24px;
   padding: 30px 25px;
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   box-shadow:
-    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.15),
-    10px 10px 25px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+    inset 2px 2px 4px rgba(255,255,255,0.3),
+    inset -2px -2px 4px rgba(0,0,0,0.15),
+    10px 10px 25px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
   animation: fadeInUp 0.4s ease both;
 }
 
+/* Weather main info */
 .weather-location {
   font-size: 1.4rem;
   font-weight: 600;
   color: #004d61;
+  margin-bottom: 6px;
+}
+
+.weather-time {
+  font-size: 1rem;
+  color: #555;
   margin-bottom: 12px;
 }
 
@@ -141,17 +177,16 @@ button:active {
   font-size: 4rem;
   font-weight: 800;
   color: #004d61;
-  line-height: 1;
 }
 
 .weather-desc {
   font-size: 1.2rem;
   color: #005b73;
-  text-transform: capitalize;
   margin-top: 6px;
+  text-transform: capitalize;
 }
 
-/* Доп.информация */
+/* ========== EXTRA WEATHER INFO ========== */
 .weather-extra {
   margin-top: 20px;
   display: grid;
@@ -161,22 +196,43 @@ button:active {
 
 .weather-extra-item {
   background: #ffffff22;
-  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 12px;
   padding: 12px;
   font-size: 0.95rem;
   color: #004d61;
-  box-shadow: inset 1px 1px 3px rgba(255,255,255,0.2),
-              inset -1px -1px 2px rgba(0,0,0,0.1);
-}
-.weather-extra-item span {
-  font-weight: bold;
-  font-size: 1.1rem;
-  display: block;
-  margin-top: 4px;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
-/* Ошибка */
+.weather-extra-item span {
+  display: block;
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ========== FORECAST (HOURLY) ========== */
+.forecast-block {
+  margin-top: 20px;
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.forecast-item {
+  background: #ffffff22;
+  padding: 8px;
+  border-radius: 10px;
+  text-align: center;
+  color: #004d61;
+  min-width: 80px;
+}
+
+.forecast-item img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ========== ERROR MESSAGE ========== */
 .error-msg {
   margin-top: 16px;
   padding: 12px 16px;
@@ -186,20 +242,36 @@ button:active {
   color: #b00000;
   font-weight: 600;
   backdrop-filter: blur(8px);
-  box-shadow: none;
 }
 
-/* Анимация */
+/* ========== ANIMATIONS ========== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+/* ========== UTILS ========== */
 .hidden {
   display: none !important;
+}
+
+/* ========== RESPONSIVE LAYOUT ========== */
+@media (max-width: 1024px) {
+  .search-box { flex-direction: column; gap: 8px; }
+  input, button { width: 100%; }
+}
+
+@media (max-width: 400px) {
+  input {
+    padding: 10px 12px;
+  }
+
+  button {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  .app-title {
+    font-size: 28px;
+  }
 }
