@@ -36,3 +36,8 @@ HTML5 · CSS3 · JavaScript · OpenWeatherMap API · OpenStreetMap Nominatim
 A personal frontend portfolio project focusing on browser APIs, asynchronous requests, responsive UI, and error handling.
 
 **Created by [Artur Zuiev](https://github.com/Artur-Zuiev).**
+
+
+## API provider and security
+
+The app now uses the [Open-Meteo](https://open-meteo.com/) geocoding and forecast APIs, which do not require an API key for non-commercial projects. The previous OpenWeatherMap key was exposed in public Git history; if it is still active, the owning account must revoke it. The migration removes the key from current source code **but cannot erase Git history**. Real-browser functionality has not yet been verified.
